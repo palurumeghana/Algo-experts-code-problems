@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Collections;
+//using System.Collections.Hashtable;
+using System;
+
+public class Program {
+  public int FirstDuplicateValue(int[] array) {
+     List<int>hm=new List<int>(); 
+      int count=1;
+      foreach( int val in array)
+      {
+          if(hm.Contains(val))
+          {
+           return val;
+          }
+          hm.Add(val);
+      }
+      
+    return -1;
+  }
+}
