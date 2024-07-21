@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+
+public class Program {
+	public static List<int[]> FourNumberSum(int[] array, int targetSum) {
+        List<int[]> res= new List<int[]>();
+        int sum=0;
+		for(int i=0;i<array.Length;i++)
+        {
+            for(int j=i+1;j<array.Length;j++)
+            {
+                for(int k=j+1;k<array.Length;k++)
+                {
+                    for(int l=k+1;l<array.Length;l++)
+                    {
+                        sum= array[i]+array[j]+array[k]+array[l];
+                        if(sum==targetSum)
+                        {
+                           res.Add(new int[]{array[i],array[j], array[k],array[l]});
+                        }
+                        
+                    }
+                }
+            }
+        }
+		return res;
+	}
+}
