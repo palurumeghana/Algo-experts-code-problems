@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+public class Program {
+    public static List<int> ZigzagTraverse(List<List<int>> array) {
+        var res = new List<int>();
+        int scol = 0;
+        int srow = 0;
+        int ecol = array[0].Count - 1;
+        int erow = array.Count - 1;
+        
+        while (srow <= erow && scol <= ecol) {
+            for (int i = scol; i <= ecol; i++) {
+                res.Add(array[srow][i]);
+            }
+            srow++;
+
+            for (int i = srow; i <= erow; i++) {
+                res.Add(array[i][ecol]);
+            }
+            ecol--;
+
+            if (srow <= erow) {
+                for (int i = ecol; i >= scol; i--) {
+                    res.Add(array[erow][i]);
+                }
+                erow--;
+            }
+
+            if (scol <= ecol) {
+                for (int i = erow; i >= srow; i--) {
+                    res.Add(array[i][scol]);
+                }
+                scol++;
+            }
+        }
+        return res;
+    }
+}
