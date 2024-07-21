@@ -1,0 +1,22 @@
+using System;
+public class Program {
+	public static int[] SmallestDifference(int[] arrayOne, int[] arrayTwo) {
+        int small=int.MaxValue;
+        int[]s=new int[2];
+		for(int i=0;i<arrayOne.Length;i++)
+        {
+            for(int j=0;j<arrayTwo.Length;j++)
+            {
+                int cur= Math.Abs(arrayOne[i]-arrayTwo[j]);
+                if(cur < small)
+                {
+                    small=cur;
+                    s=new int[]{arrayOne[i], arrayTwo[j]};
+                    
+                }
+            }
+        }
+		return s;
+                                  
+	}
+}
