@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Program {
+  public int[] MissingNumbers(int[] nums) {
+    HashSet<int>nl=new HashSet<int>(nums);
+     HashSet<int>ml=new HashSet<int>(); 
+      
+      for(int i=1;i<nums.Length+3;i++)
+      {
+          nl.Add(i);
+      }
+    foreach(int m in nl)
+    {
+        if(!(nums.Contains(m)))
+        {
+            ml.Add(m);
+        }
+    }
+      
+        return ml.ToArray();
+  }
+}
