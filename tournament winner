@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System;
+using System.Collections;
+
+public class Program {
+  public string TournamentWinner(
+    List<List<string>> competitions, List<int> results
+  ) {
+      Hashtable scores = new Hashtable();
+      
+      for(int i = 0; i < results.Count; i++)
+      {
+          String winner = (results[i] == 0) ? competitions[i][1] : competitions[i][0];
+          if(scores.ContainsKey(winner))
+          {
+              scores[winner] = (int)scores[winner] + 3;
+          }
+          else
+          {
+              scores.Add(winner, 3);
+          }
+      }
+      
+      string winnerTeam = "";
+      int maxScore = 0;
+      foreach(DictionaryEntry entry in scores)
+      {
+          if((int)entry.Value > maxScore)
+          {
+              maxScore = (int)entry.Value;
+              winnerTeam = (string)entry.Key;
+          }
+      }
+      
+      return winnerTeam;
+  }
+}
+using System.Collections.Generic;
+using System;
+using System.Collections;
+
+public class Program {
+  public string TournamentWinner(
+    List<List<string> > competitions, List<int> results
+  ) {
+      Hashtable scores=new Hashtable();
+      //int homeTeam= competitions[0];
+      //int awayTeam=competitions[1];
+    
+      for(int i=0;i<results.Count;i++)
+      {
+          String winner= (results[i]==0 ) ? competitions[i][1]: competitions[i][0];
+          if(scores.ContainsKey(winner))
+          {
+              scores[winner]=(int)scores[winner] + 3;
+              
+          }
+          else{
+              scores.Add(winner,3);
+          }
+         
+            
+      }
+       int newsc=0;
+      string winnerTeam="";
+      foreach(DictionaryEntry entry in scores)
+      {
+          if((int)entry.Value >newsc)
+          {
+              newsc=(int)entry.Value;
+             winnerTeam = (string)entry.Key;
+          }
+      }
+      
+      
+    return winnerTeam;
+  }
+}
