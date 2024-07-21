@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+public class Program {
+	public static int[] SubarraySort(int[] array) {
+		int[] sorted= (int[])(array.Clone());
+       int start=-1;
+        int end=-1;
+        Array.Sort(sorted);
+        int i=0;
+        while(i<array.Length-1)
+        {
+            
+        
+            if(array[i]==sorted[i])
+            {
+                i++;
+            }
+            else{
+                start=i;
+                break;
+                
+            }
+        }
+        int j=array.Length-1;
+            while(j>0)
+            {
+               if(array[j]==sorted[j])
+            {
+                j--;
+            }
+            else{
+                end=j;
+                break;
+                
+            } 
+            }
+        
+		return new int[]{start, end};
+	}
+}
+using System;
+public class Program {
+	public static int[] SubarraySort(int[] array) {
+		int[] sorted=(int[])array.Clone();
+        Array.Sort(sorted);
+        int start=-1;
+        int end=-1;
+        for(int i=0;i<array.Length;i++)
+        {
+            if(array[i]!=sorted[i])
+            {
+                start=i;
+                break;
+            }
+        }
+        for(int i=array.Length-1;i>0;i--)
+        {
+            if(array[i]!=sorted[i])
+            {
+                end=i;
+                break;
+            }
+        }
+		return new int[]{start,end} ;
+	}
+}
+using System;
+public class Program {
+	public static int[] SubarraySort(int[] array) {
+      
+        int start=-1;
+        int end=-1;
+        int[] array2=(int[])array.Clone();
+        Array.Sort(array2);
+        for(int i=0;i<array.Length;i++)
+        {
+            if(array[i]!=array2[i])
+            {
+                start=i;
+                break;
+            }
+         }
+        for(int i=array.Length-1;i>0;i--)
+        {
+            if(array[i]!=array2[i])
+            {
+                end=i;
+                break;
+            }
+        }
+        return new int[]{start, end};
+        
+        }
+       
+	}
