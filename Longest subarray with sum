@@ -1,0 +1,32 @@
+using System;
+
+public class Program {
+    public int[] LongestSubarrayWithSum(int[] array, int targetSum) {
+        if (array.Length > 0 && array[0] == targetSum) {
+            return new int[] { 0, 0 };
+        }
+
+        int sum = 0;
+        int[] l = new int[] { -1, -1 };
+        int i = 0;
+        while (i < array.Length) {
+            int j = i;
+            sum = 0;
+            while (j < array.Length) {
+                sum += array[j];
+                if (sum == targetSum && (l[0] == -1 || j - i > l[1] - l[0])) {
+                    l[0] = i;
+                    l[1] = j;
+                }
+                j++;
+            }
+            i++;
+        }
+        
+         if (l[0] == -1) {
+           return new int[] { };
+         }
+
+        return l;
+    }
+}
