@@ -1,0 +1,69 @@
+public class Program {
+	public static bool IsMonotonic(int[] array) {
+		bool asc = false, des = false;
+		for(int i = 0; i  < array.Length - 1; i++){
+			if(array[i] < array[i + 1])
+				asc = true;
+			else if(array[i] > array[i + 1])
+				des = true;
+		}
+		return !(asc && des);
+		
+  }
+}
+public static bool IsMonotonic(int[] array) {
+        bool inc=false;
+        bool dec=false;
+		for(int i=0;i<array.Length-1;i++)
+        {
+            if(array[i]<array[i+1])
+            {
+                inc= true;
+            }
+            else{
+            
+                if(array[i]>array[i+1]) {
+                dec= true;
+            }
+                
+            }
+        }
+        
+			return !(inc && dec);
+	}
+}
+public class Program {
+	public static bool IsMonotonic(int[] array) {
+        bool inc=false;
+        bool dec=false;
+        
+        
+		for(int i=0;i<array.Length-1;i++)
+        {
+            if(array.Length<=1)
+            {
+                return true;
+            }
+            
+             else if(array[i]<array[i+1])
+
+            {  
+                 inc= true;
+                
+            }
+             else if(array[i]>array[i+1])
+
+            {  
+                 dec= true;
+                
+            }
+            
+            
+           
+        }
+        return !(inc && dec);
+		
+	
+}
+                
+}
