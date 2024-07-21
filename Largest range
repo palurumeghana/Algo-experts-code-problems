@@ -1,0 +1,30 @@
+using System;
+
+public class Program {
+  public static int[] LargestRange(int[] ar) {
+   if(ar.Length==1) {
+      return new int[]{ar[0],ar[0]};
+    }
+    int[] l=new int[2];
+    Array.Sort(ar);
+    int i=0;
+    while(i<ar.Length) {
+      int j=i;
+      while(i<ar.Length-1 && (ar[i]==ar[i+1] || ar[i]+1==ar[i+1])) {
+         {
+          
+         i++;
+        }
+      } 
+      if(ar[i]-ar[j]>l[1]-l[0]) {
+        l[0]=ar[j];
+        l[1]=ar[i];
+      }
+      i++;
+    }
+      
+          
+    return l;
+    
+        }
+  }
