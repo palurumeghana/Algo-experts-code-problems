@@ -1,0 +1,32 @@
+using System;
+
+public class Program {
+  public static int MinRewards(int[] scores) {
+    var rewards=new int[scores.Length];
+    for(int i=0;i<rewards.Length;i++)
+    {
+        rewards[i]=1;
+    }
+      for(int i=1;i<scores.Length;i++)
+      {
+          if(scores[i]>scores[i-1])
+          {
+              rewards[i]=Math.Max(rewards[i],rewards[i-1]+1);
+          }
+          
+      }
+      for(int i=scores.Length-2;i>=0;i--)
+      {
+          if(scores[i]>scores[i+1])
+          {
+              rewards[i]=Math.Max(rewards[i],rewards[i+1]+1);
+          }
+      }
+    var totalrewards=0;
+      foreach(var item in rewards)
+      {
+          totalrewards+=item;
+      }
+      return totalrewards;
+  }
+}
