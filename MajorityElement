@@ -1,0 +1,31 @@
+using System;
+using System.Collections;
+public class Program {
+  public int MajorityElement(int[] array) {
+   Hashtable n=new Hashtable();
+      int count=0;
+    foreach(int nc in array )
+    {
+        if(n.ContainsKey(nc))
+        {
+             n[nc] = (int)n[nc] + 1;;
+        }
+        else
+        {
+            n.Add(nc, 1);
+        }
+         count = (int)n[nc];
+       if(count >array.Length/2)
+       {
+           return nc;
+       }
+         
+      }
+        
+      
+      
+    
+          return -1;
+   
+  }
+}
