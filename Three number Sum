@@ -1,0 +1,97 @@
+using System.Collections.Generic;
+
+public class Program {
+	public static List<int[]> ThreeNumberSum(int[] array, int targetSum) {
+		// Write your code here.
+        if(a.length < 3) {
+      return ans;
+      }
+    for(int i = 0; i < a.length; i++) {
+      int f = a[i];
+      int l = i+1;
+      int r = a.length - 1;
+      while( l < r) {
+        int x = a[l] + a[r] + f;
+        if( t == a[l] + a[r] + f) {
+          ans.add(new Integer[]{f, a[l], a[r]});
+          l++;
+          r--;
+        }
+        if( x > t ) {
+          r--;
+        }
+        else if(x < t){
+          l++;
+        }
+      }
+      
+    }
+    return ans;
+  }
+}
+
+
+		return null;
+	}
+}
+using System;
+using System.Collections.Generic;
+
+public class Program {
+    public static List<int[]> ThreeNumberSum(int[] a, int t) {
+        Array.Sort(a);
+		List<int[]> ans = new List<int[]>();
+		// if(a.Length < 3) {
+  //     return ans;
+  //     }
+    for(int i = 0; i < a.Length; i++) {
+      int x = i;
+      int y = i+1;
+      int z = a.Length - 1;
+      while( y < z) {
+        int sum = a[y] + a[z] + a[i];
+        if( t == a[y] + a[z] + a[i]) {
+          ans.Add(new int[]{a[i], a[y], a[z]});
+          y++;
+          z--;
+        }
+        if( sum > t ) {
+          z--;
+        }
+        else if(sum < t){
+          y++;
+        }
+      }
+      
+    }
+    return ans;
+  }
+}
+
+using System.Collections.Generic;
+using System;
+public class Program {
+	public static List<int[]> ThreeNumberSum(int[] array, int targetSum) {
+		// Write your code here.
+       
+        List<int[]> res= new List<int[]>();
+        Array.Sort(array);
+        for(int i=0;i<array.Length;i++)
+        {
+            for(int j=i+1;j<array.Length;j++)
+            {
+                for(int k=j+1;k<array.Length;k++)
+                {
+                    int sum= array[i]+array[j]+array[k];
+                    if(sum==targetSum)
+                    {
+                        res.Add(new int[]{ array[i], array[j], array[k]});
+                    }
+                }
+            }
+        }
+		return res;
+	}
+}
+
+
