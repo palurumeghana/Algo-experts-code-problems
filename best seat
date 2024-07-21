@@ -1,0 +1,26 @@
+using System;
+public class Program {
+    public int BestSeat(int[] seats) {
+        int bestseat = -1;
+        int maxspace = 0;
+        int leftpointer = 0;
+        
+        while (leftpointer < seats.Length) {
+            int rightpointer = leftpointer + 1;
+            
+            while (rightpointer < seats.Length && seats[rightpointer] == 0) {
+                rightpointer++;
+            }
+            
+            int availablespace = rightpointer - leftpointer - 1;
+            if (availablespace > maxspace) {
+                bestseat = (leftpointer + rightpointer) / 2;
+                maxspace = availablespace;
+            }
+            
+            leftpointer = rightpointer;
+        }
+        
+        return bestseat;
+    }
+}
