@@ -1,0 +1,60 @@
+using System;
+
+public class Program {
+  public int[] ArrayOfProducts(int[] a) {
+
+
+    int[] res=new int[a.Length];
+    int prod=1;
+    
+    for(int i=0;i<a.Length;i++) {
+      for(int j=0;j<a.Length;j++)
+        {
+          
+          if(i==j) {
+            continue;
+            
+          }
+          prod=prod*a[j];
+          res[i]=prod;
+          
+        }
+      prod=1;
+      
+      
+    }
+    return res;
+  }
+}
+using System;
+using System.Collections.Generic;
+
+public class Program {
+  public int[] ArrayOfProducts(int[] array) {
+      int c=1;
+     int[] res=new int[array.Length];
+    
+    
+   for(int i=0;i<array.Length;i++)
+   {
+        
+       for(int j=0;j<array.Length;j++)
+       {
+         if(i==j)
+         {
+             continue;
+         }
+        
+               c*=array[j];
+               res[i]=c;
+                
+           }
+           c=1;
+          
+       }
+       
+    
+    
+    return res;
+  }
+}
