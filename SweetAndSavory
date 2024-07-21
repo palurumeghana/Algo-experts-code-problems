@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+
+public class Program {
+  public int[] SweetAndSavory(int[] dishes, int target) {
+    List<int> sweet=new List<int>();
+     List<int> sav=new List<int>(); 
+      int closest=int.MaxValue;
+        int[] res=new int[2]; 
+      int i=0;
+      int j=0;
+      int sum=0;
+      
+      foreach(int nsw in dishes)
+      {
+          if(nsw < 0)
+          {
+              sweet.Add(nsw);
+          }
+          else{
+              sav.Add(nsw);
+          }
+      }
+      for(i=0;i<sweet.Count;i++)
+      {
+          for(j=0;j<sav.Count;j++)
+          {
+              sum=sweet[i]+sav[j];
+              if(sum<=target)
+              {
+                 int diff=target-sum;
+                  if(diff<closest)
+                  {
+                      closest=diff;
+                      res=new int[2]{sweet[i], sav[j]};
+                      
+                  }
+              }
+          }
+      }
+      
+      
+    return res;
+  }
+}
