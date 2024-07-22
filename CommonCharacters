@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+//using System.Text;
+public class Program {
+  public string[] CommonCharacters(string[] strings) {
+        HashSet<char> common=new HashSet<char>(strings[0]);
+      //StringBuilder answer=new StringBuilder();
+      foreach(var word in strings)
+      {
+          common.IntersectWith(word);
+      }
+          var answer=common.Select(c=>c.ToString()).ToArray();
+      
+          return answer;
+        
+    }
+}
