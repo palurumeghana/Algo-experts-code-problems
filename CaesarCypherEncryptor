@@ -1,0 +1,16 @@
+using System;
+using System.Text;
+public class Program {
+	public static string CaesarCypherEncryptor(string str, int key) {
+		string str1="abcdefghijklmnopqrstuvwxyz";
+        string str2=str1+str1+str1;
+        StringBuilder res= new StringBuilder();
+        for(int i=0;i<str.Length;i++)
+        {
+            int originalIndex = str1.IndexOf(str[i]);
+            int newIndex = originalIndex + key;
+            res.Append(str2[newIndex]);
+        }
+		return res.ToString();
+	}
+}
