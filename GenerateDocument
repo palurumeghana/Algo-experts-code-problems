@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+public class Program {
+  public bool GenerateDocument(string characters, string document) {
+    Dictionary<char, int> d=new Dictionary<char, int>();
+    foreach(var c in characters)
+    {
+        if(d.ContainsKey(c))
+        {
+            d[c]++;
+        }
+        else{
+            d.Add(c,1);
+        }
+    }
+      foreach(var c in document)
+      {
+          if(!d.ContainsKey(c) || d[c]==0)
+          {
+               return false;
+          }
+          else{
+            d[c]--;
+          }
+      }
+         return true;
+  }
+}
