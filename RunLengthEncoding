@@ -1,0 +1,38 @@
+using System;
+using System.Text;
+public class Program {
+  public string RunLengthEncoding(string str) {
+    StringBuilder l=new StringBuilder();
+      int c=1;
+      for(int i=1;i<str.Length;i++)
+      {
+          if(str[i]==str[i-1])
+          {
+              c++;
+              if(c==9)
+              {
+                  l.Append(c).Append(str[i - 1]);
+                  c=0;
+              }
+          }
+          else
+          {
+              if(c>0)
+              {
+                  l.Append(c).Append(str[i - 1]);
+              
+              }
+              c=1;
+            
+              }
+          
+      }
+      
+      if(c>0)
+      {
+             l.Append(c).Append(str[str.Length - 1]); 
+      }
+   
+    return l.ToString();
+  }
+}
