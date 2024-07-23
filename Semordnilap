@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System;
+//using System.Linq;
+public class Program {
+  public List<List<string> > Semordnilap(string[] words) {
+      List<String>visited=new List<String>();
+      List<List<String>>result=new List<List<String>>();
+      foreach( var word in words)
+      {
+          var wordchar= word.ToCharArray();
+          Array.Reverse(wordchar);
+          string reversed=new string(wordchar);
+          if(visited.Contains(reversed))
+          {
+              result.Add(new List<string>(){reversed, word});
+          }
+          else{
+              visited.Add(word);
+          }
+      }
+    
+    return result;
+  }
+}
