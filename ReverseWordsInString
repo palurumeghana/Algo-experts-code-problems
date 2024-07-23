@@ -1,0 +1,25 @@
+using System;
+
+public class Program {
+  public string ReverseWordsInString(string str) {
+      string reversewords="";
+      string word="";
+      for(int i=0;i<str.Length;i++)
+      {
+          if(str[i]== ' ')
+          {
+              word= str[i]+word;
+              reversewords=word+reversewords;
+              word="";
+          }
+          else{
+              word=word+str[i];
+          }
+      }
+      reversewords=word+reversewords;
+      return reversewords;
+      
+    
+   
+  }
+}
