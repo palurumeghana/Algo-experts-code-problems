@@ -1,0 +1,21 @@
+public class Program {
+	public static string LongestSubstringWithoutDuplication(string str) {
+		HashSet<char> hs=new HashSet<char>();
+        stringBuilder ;
+        string ls="";
+        for(int i=0;i<str.Length;i++)
+        if(hs.Contains(str[i]))
+        {
+            if(ls.Length<l.Length)
+            {
+                ls=l;
+            }
+           
+            
+        }
+        hs.Add(str[i]);
+        l.Add(str[i]);
+        
+		
+	}
+}
