@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+class Program {
+	public static List<List<string> > groupAnagrams(List<string> words) {
+         Dictionary<string, List<string>> anag= new Dictionary<string,List<string>>();
+        foreach(string word in words)
+        {
+            char[] str=word.ToCharArray();
+            Array.Sort(str);
+            string sorted=new string(str);
+            if(!anag.ContainsKey(sorted))
+            {
+                anag[sorted]=new List<string>();
+            }
+            
+                 anag[sorted].Add(word);
+        
+                //anag[sorted].Add(word);
+        
+            
+        }
+            List<List<string>> result= anag.Values.ToList();
+		// Write your code here.
+		return result;
+	}
+}
