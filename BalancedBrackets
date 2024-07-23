@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+public class Program {
+	public static bool BalancedBrackets(string str) {
+		
+        // Create a stack to store opening brackets
+        Stack<char> stack = new Stack<char>();
+
+        // Traverse the expression
+        foreach (char c in str)
+        {
+            // If the character is an opening bracket, push it onto the stack
+            if (c == '(' || c == '{' || c == '[')
+            {
+                stack.Push(c);
+            }
+            // If the character is a closing bracket
+            else if (c == ')' || c == '}' || c == ']')
+            {
+                // Check if stack is empty
+                if (stack.Count == 0)
+                {
+                    return false;
+                }
+
+                // Pop the top element from the stack
+                char top = stack.Pop();
+
+                // Check for matching pairs
+               if ((c == ')' && top != '(') ||
+                    (c == '}' && top != '{') ||
+                    (c == ']' && top != '[')
+                   )
+                    
+                {
+                    return false;
+                }
+            }
+        }
+
+        // Check if the stack is empty at the end
+        return stack.Count == 0;
+    }
+
+   
+}
