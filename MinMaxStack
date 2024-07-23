@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+
+public class Program {
+	// Feel free to add new properties and methods to the class.
+	public class MinMaxStack {
+        Stack<int> mainStack=new Stack<int>();
+        Stack<int> minStack=new Stack<int>();
+        Stack<int> maxStack=new Stack<int>();
+		public int Peek() {
+			// Write your code here.
+			return mainStack.Peek();
+		}
+
+		public int Pop() {
+			minStack.Pop();
+            maxStack.Pop();
+            return mainStack.Pop();
+		}
+
+
+		public void Push(int number) {
+			if(mainStack.Count==0)
+            {
+                mainStack.Push(number);
+                maxStack.Push(number);
+                minStack.Push(number);
+		}
+
+
+		public int GetMin() {
+			// Write your code here.
+			return -1;
+		}
+
+
+		public int GetMax() {
+			// Write your code here.
+			return -1;
+		}
+	}
+}
