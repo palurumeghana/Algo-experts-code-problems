@@ -1,0 +1,39 @@
+using System;
+
+public class Program {
+  public bool OneEdit(string str1, string str2) {
+        // Length difference more than 1 indicates more than one edit required
+        if (Math.Abs(str1.Length - str2.Length) > 1)
+            return false;
+
+        // Ensure str1 is always the shorter or equal length string
+        if (str1.Length > str2.Length) {
+            string temp = str1;
+            str1 = str2;
+            str2 = temp;
+        }
+
+        int index1 = 0;
+        int index2 = 0;
+        bool foundDifference = false;
+
+        while (index1 < str1.Length && index2 < str2.Length) {
+            if (str1[index1] != str2[index2]) {
+                // Ensure this is the first difference found
+                if (foundDifference)
+                    return false;
+                
+                foundDifference = true;
+
+                if (str1.Length == str2.Length) {
+                    index1++; // Move pointer for replace case
+                }
+            } else {
+                index1++; // Move pointer if characters match
+            }
+            index2++; // Always move pointer for the longer string
+        }
+
+        return true;
+    }
+}
