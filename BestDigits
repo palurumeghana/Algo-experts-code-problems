@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+public class Program {
+  public string BestDigits(string number, int numDigits) {
+    Stack<char> res=new Stack<char>();
+      foreach(var num in number)
+      {
+          while(numDigits>0 && res.Count>0 && res.Peek()<num )
+          {
+              res.Pop();
+              //res.Push(num);
+              numDigits--;
+          }
+          res.Push(num);
+      }
+      while (numDigits > 0)
+        {
+            res.Pop();
+            numDigits--;
+        }
+      StringBuilder ans= new StringBuilder();
+      foreach( var rest in res)
+      {
+          ans=ans.Append(rest);
+          
+      }
+       // Reverse the string because stack gives us reversed order
+      char[] resultArray = ans.ToString().ToCharArray();
+        Array.Reverse(resultArray);
+
+        return new string(resultArray);
+      
+    //return ans.ToString;
+  }
+}
