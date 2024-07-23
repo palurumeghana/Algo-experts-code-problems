@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using System;
+
+public class Program {
+  public List<int> SortStack(List<int> stack) {
+    
+        // Base case: If stack is empty, return
+        if (stack.Count == 0)
+        {
+            return;
+        }
+
+        // Remove the top element
+        int top = stack.Pop();
+
+        // Recursively sort the remaining stack
+        SortStack(stack);
+
+        // Insert the top element back in the sorted order
+        SortedInsert(stack, top);
+    }
+
+    public static void SortedInsert(Stack<int> stack, int element)
+    {
+        // Base case: If stack is empty or top element is less than or equal to the element
+        if (stack.Count == 0 || stack.Peek() <= element)
+        {
+            stack.Push(element);
+            return;
+        }
+
+        // Remove the top element
+        int top = stack.Pop();
+
+        // Recursively call to insert the element
+        SortedInsert(stack, element);
+
+        // Push the top element back to the stack
+        stack.Push(top);
+    }
+
+
+    // Utility function to print the stack
+    public static void PrintStack(Stack<int> stack)
+    {
+        Stack<int> tempStack = new Stack<int>(stack);
+        while (tempStack.Count > 0)
+        {
+            Console.Write(tempStack.Pop() + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+using System.Collections.Generic;
+using System;
+
+public class Program {
+  public List<int> SortStack(List<int> stack) {
+      stack.Sort();
+      return stack;
+    // Write your code here.
+    return null;
+  }
+}
